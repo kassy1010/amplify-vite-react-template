@@ -13,10 +13,14 @@ function App() {
     });
   }, []);
 
-  function createTodo() {
+  async function createTodo() {
+    const content = window.prompt("Todo content")
+    const { data } = await client.models.Todo.list();
+    console.log(data)
+    if (data.find((e) => e.content === content)) return
     client.models.Todo.create({
-      content: window.prompt("Todo content"),
-      idStr: "kashioIdId"
+      content: content,
+      idStr: "dummyId"
     });
   }
 
