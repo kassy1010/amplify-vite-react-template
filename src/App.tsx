@@ -17,7 +17,7 @@ function App() {
     const content = window.prompt("Todo content")
     const { data } = await client.models.Todo.list();
     console.log(data)
-    if (data.find((e) => e.content === content)) return
+    // if (data.find((e) => e.content === content)) return
     client.models.Todo.create({
       content: content,
       idStr: "dummyId"
